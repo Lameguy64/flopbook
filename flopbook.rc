@@ -1,0 +1,25 @@
+id ICON "icons/icon.ico"
+1 VERSIONINFO
+
+FILEVERSION     0,0,0,0
+PRODUCTVERSION  0,2,2,0
+
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "040904E4"
+    BEGIN
+      VALUE "CompanyName", "Meido-Tek Productions (Lameguy64)"
+      VALUE "FileDescription", "Flopbook (Not Studio)"
+      VALUE "InternalName", "flopbook"
+      VALUE "LegalCopyright", "None"
+      VALUE "OriginalFilename", "flopbook.exe"
+      VALUE "ProductName", "Flopbook"
+      VALUE "ProductVersion", "0.22b"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x409, 1252
+  END
+END

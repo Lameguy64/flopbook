@@ -1,0 +1,1 @@
+windres flopbook.rc -o flopbookres

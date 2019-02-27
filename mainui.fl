@@ -1,0 +1,297 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0304
+header_name {.h}
+code_name {.cxx}
+widget_class MainUI {
+  label Flopbook
+  user_data 0 user_data_type long
+  callback cb_CloseCallback open
+  xywh {553 160 800 600} type Double align 16 resizable
+  class Fl_Double_Window xclass {flopnote.main} visible
+} {
+  Fl_Menu_Bar {} {open
+    xywh {0 0 800 20}
+  } {
+    Submenu {} {
+      label {&File} open
+      xywh {0 0 62 20} labelsize 12
+    } {
+      MenuItem {} {
+        label {&New}
+        callback cb_NewProject
+        xywh {0 0 30 20} shortcut 0x4006e labelsize 12
+      }
+      MenuItem {} {
+        label {&Open...}
+        callback cb_OpenProject
+        xywh {0 0 30 20} shortcut 0x4006f labelsize 12
+      }
+      MenuItem {} {
+        label {&Save}
+        user_data 0 user_data_type long
+        callback cb_SaveProject
+        xywh {0 0 30 20} shortcut 0x40073 labelsize 12
+      }
+      MenuItem {} {
+        label {Save &As...}
+        user_data 1 user_data_type long
+        callback cb_SaveProject
+        xywh {0 0 30 20} labelsize 12 divider
+      }
+      MenuItem {} {
+        label {Export Animated &GIF...}
+        callback cb_ExportGIF
+        xywh {0 0 30 20} labelsize 12 divider
+      }
+      MenuItem {} {
+        label {E&xit}
+        callback cb_CloseMenu
+        xywh {0 0 30 20} labelsize 12
+      }
+    }
+    Submenu {} {
+      label {&Edit} open
+      xywh {0 0 62 20} labelsize 12
+    } {
+      MenuItem {} {
+        label {&Undo}
+        callback cb_Undo
+        xywh {0 0 30 20} shortcut 0x4007a labelsize 12 divider
+      }
+      MenuItem {} {
+        label {&Copy Frame}
+        callback cb_CopyFrame
+        xywh {0 0 30 20} shortcut 0x40063 labelsize 12
+      }
+      MenuItem {} {
+        label {&Paste Frame}
+        callback cb_PasteFrame
+        xywh {0 0 30 20} shortcut 0x40076 labelsize 12
+      }
+    }
+    Submenu {} {
+      label {F&rame} open
+      xywh {0 0 62 20} labelsize 12
+    } {
+      MenuItem {} {
+        label {&New Frame}
+        callback cb_NewFrameMenu
+        xywh {0 0 30 20} shortcut 0x8006e labelsize 12
+      }
+      MenuItem {} {
+        label {&Delete Frame}
+        callback cb_DeleteFrameMenu
+        xywh {0 0 30 20} shortcut 0xffff labelsize 12 divider
+      }
+      MenuItem {} {
+        label {Jump to &First Frame}
+        callback cb_GotoFirst
+        xywh {0 0 30 20} shortcut 0xff50 labelsize 12
+      }
+      MenuItem {} {
+        label {Jump to &Last Frame}
+        callback cb_GotoLast
+        xywh {0 0 30 20} shortcut 0xff57 labelsize 12
+      }
+    }
+  }
+  Fl_Group {} {open
+    xywh {0 20 63 530}
+  } {
+    Fl_Button brushTool {
+      user_data 0 user_data_type long
+      callback cb_ToolButton
+      tooltip Brush image {icons/brush_icon.png} xywh {5 25 25 25} type Radio box THIN_UP_BOX value 1
+    }
+    Fl_Button eraseTool {
+      user_data 1 user_data_type long
+      callback cb_ToolButton
+      tooltip Eraser image {icons/eraser_icon.png} xywh {30 25 25 25} type Radio box THIN_UP_BOX
+    }
+    Fl_Button fillTool {
+      user_data 2 user_data_type long
+      callback cb_ToolButton
+      tooltip Fill image {icons/paintfill_icon.png} xywh {5 50 25 25} type Radio box THIN_UP_BOX
+    }
+    Fl_Box {} {
+      label Zoom
+      xywh {2 170 53 16} labelsize 12 align 20
+    }
+    Fl_Group {} {open
+      xywh {5 186 50 30}
+    } {
+      Fl_Button {zoomRadio[0]} {
+        label 1x
+        user_data 0 user_data_type long
+        callback cb_Zoom
+        xywh {5 186 25 15} type Radio box THIN_UP_BOX shortcut 0x80031 value 1 labelsize 10
+      }
+      Fl_Button {zoomRadio[1]} {
+        label 2x
+        user_data 1 user_data_type long
+        callback cb_Zoom
+        xywh {30 186 25 15} type Radio box THIN_UP_BOX shortcut 0x80032 labelsize 10
+      }
+      Fl_Button {zoomRadio[2]} {
+        label 4x
+        user_data 2 user_data_type long
+        callback cb_Zoom
+        xywh {5 201 25 15} type Radio box THIN_UP_BOX shortcut 0x80033 labelsize 10
+      }
+      Fl_Button {zoomRadio[3]} {
+        label 8x
+        user_data 3 user_data_type long
+        callback cb_Zoom
+        xywh {30 201 25 15} type Radio box THIN_UP_BOX shortcut 0x80034 labelsize 10
+      }
+    }
+    Fl_Spinner brushSize {
+      label Size
+      tooltip {Brush size in pixels.} xywh {5 95 50 21} labelsize 12 align 5 maximum 12 value 4 textsize 12
+    }
+    Fl_Group {} {open
+      xywh {5 115 50 15}
+    } {
+      Fl_Button {brushShape[0]} {
+        tooltip {Round brush.} image {icons/round_brush.png} xywh {5 115 25 15} type Radio box THIN_UP_BOX value 1 labelsize 12
+      }
+      Fl_Button {brushShape[1]} {
+        tooltip {Square brush.} image {icons/square_brush.png} xywh {30 115 25 15} type Radio box THIN_UP_BOX labelsize 12
+      }
+    }
+    Fl_Button patternInvert {
+      label R
+      tooltip {Invert pattern.} xywh {40 150 15 15} type Toggle box THIN_UP_BOX labelfont 1 labelsize 12
+    }
+    Fl_Choice patternChoice {
+      label Pattern open
+      tooltip {Brush pattern.} xywh {5 150 35 15} down_box BORDER_BOX labelsize 12 align 5 textsize 12
+    } {
+      MenuItem {} {
+        image {icons/pattern_normal.png} xywh {0 0 30 20}
+      }
+      MenuItem {} {
+        image {icons/pattern_50.png} xywh {0 0 30 20}
+      }
+      MenuItem {} {
+        image {icons/pattern_25.png} xywh {0 0 30 20}
+      }
+    }
+    Fl_Group {} {open
+      xywh {5 525 50 15} resizable
+    } {}
+  }
+  Fl_Scroll canvasArea {open
+    xywh {63 20 737 530} box DOWN_BOX labelfont 1 resizable
+  } {}
+  Fl_Group {} {open
+    xywh {0 550 800 50}
+  } {
+    Fl_Group {} {open
+      xywh {500 555 20 40} resizable
+    } {}
+    Fl_Group frameCtrlGroup {open
+      xywh {695 555 100 40} deactivate
+    } {
+      Fl_Counter frameCounter {
+        label Frame
+        callback cb_FrameCounter
+        xywh {745 555 50 20} type Simple labelsize 12 align 4 minimum 0 maximum 100 step 1 textfont 1 textsize 12
+      }
+      Fl_Button {} {
+        label New
+        callback cb_NewFrame
+        tooltip {Insert a new frame after the current frame.} xywh {695 575 50 20} labelsize 12
+      }
+      Fl_Button {} {
+        label Delete
+        callback cb_DeleteFrame
+        tooltip {Delete the current frame.} xywh {745 575 50 20} labelsize 12
+      }
+    }
+    Fl_Group {} {open
+      xywh {524 575 74 16}
+    } {
+      Fl_Round_Button {rateMode[0]} {
+        label ms
+        tooltip {Specify animation rate in milliseconds.} xywh {524 576 34 15} type Radio down_box ROUND_DOWN_BOX labelsize 12
+      }
+      Fl_Round_Button {rateMode[1]} {
+        label fps
+        tooltip {Specify animation rate in frames per second.} xywh {558 576 40 15} type Radio down_box ROUND_DOWN_BOX value 1 labelsize 12
+      }
+    }
+    Fl_Value_Input rateValue {
+      label Rate
+      tooltip {Animation rate in milliseconds or frames per second depending on the rate setting.} xywh {523 555 75 21} labelsize 12 minimum 1 maximum 1000 step 1 value 15 textsize 12
+    }
+    Fl_Button {} {
+      label {@>}
+      callback cb_PlayAnim
+      tooltip {Play animation.} xywh {602 555 29 20}
+    }
+    Fl_Button {} {
+      label {@square}
+      callback cb_StopAnim
+      tooltip {Stop animation.} xywh {602 575 29 20}
+    }
+    Fl_Box paletteBox {
+      callback cb_PaletteBox
+      tooltip {Color palette, double-click to edit colors.} xywh {63 555 160 40}
+      code0 {\#include "Fl_ColorPalette.h"}
+      class Fl_ColorPalette
+    }
+    Fl_Button onionPrevToggle {
+      callback cb_OnionToggle
+      tooltip {Onionskin from previous frame.} image {icons/onionskin_prev.png} xywh {663 555 27 20} type Toggle
+    }
+    Fl_Button onionNextToggle {
+      callback cb_OnionToggle
+      tooltip {Onionskin from next frame.} image {icons/onionskin_next.png} xywh {663 575 27 20} type Toggle
+    }
+    Fl_Group colorSelection {open
+      xywh {5 555 55 40} box DOWN_BOX
+    } {
+      Fl_Box backColor {
+        xywh {30 570 20 20} box UP_BOX color 55
+      }
+      Fl_Box foreColor {
+        xywh {15 560 20 20} box UP_BOX color 0
+      }
+    }
+    Fl_Button onionRefToggle {
+      callback cb_OnionRefToggle
+      tooltip {Set current frame as reference frame.} image {icons/onionskin_ref.png} xywh {636 555 27 20} type Toggle labelsize 12
+    }
+  }
+}
+
+widget_class NewProjectUI {
+  label {New Flopbook} open selected
+  xywh {594 319 200 130} type Double hotspot
+  class Fl_Double_Window modal visible
+} {
+  Fl_Group {} {
+    label Size open
+    xywh {10 20 180 69} box ENGRAVED_BOX labelsize 12 align 5
+  } {
+    Fl_Value_Input projectXres {
+      label Width
+      xywh {60 31 120 21} labelsize 12 maximum 0 value 320 textsize 12
+    }
+    Fl_Value_Input projectYres {
+      label Height
+      xywh {60 57 120 21} labelsize 12 value 240 textsize 12
+    }
+  }
+  Fl_Return_Button {} {
+    label Okay
+    callback cb_NewProject_Okay
+    xywh {56 94 65 24} labelsize 12
+  }
+  Fl_Button {} {
+    label Cancel
+    callback cb_NewProject_Cancel
+    xywh {126 94 64 24} labelsize 12
+  }
+}
